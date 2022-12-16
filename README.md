@@ -86,9 +86,11 @@ Home [Users]    <-- Implémentez une navigation
 - Stephane 13/11/72 [X]
 ```
 
-## Aperçus des rendus
-
-![Page d'accueil](./assets/images/home.png)
-![Notification d'édition](./assets/images/notification.png)
-![Liste des étudiants](./assets/images/students.png)
-![Page d'édition d'un étudiant](./assets/images/edit.png)
+## Aperçus des rendus sur maquette minimaliste
+*CRUD en images :* Page d'accueil (**Création**), liste des étudiants/padawans (**Lecture**), et édition d'un étudiant (**Édition**), **suppression**.
+<center>
+<img src="./assets/images/home.png" alt="Page d'accueil" width="600">
+<img src="./assets/images/students.png" alt="Liste des étudiants" width="600">
+<img src="./assets/images/edit.png" alt="Page d'édition d'un étudiant" width="600">
+<img src="./assets/images/notification.png" alt="Notification d'édition" width="300">
+</center>
