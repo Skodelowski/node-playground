@@ -9,6 +9,15 @@ Améliorations possibles hors consigne :
 - sécurisation des flux et données
 - couche accessibilité
 
+### Aperçus des rendus sur maquette minimaliste
+*CRUD en images :* Page d'accueil (**Création**), liste des étudiants/padawans (**Lecture**), et édition d'un étudiant (**Édition**), **suppression**.
+<div style="text-align:center">
+<img src="./assets/images/home.png" alt="Page d'accueil" width="600">
+<img src="./assets/images/students.png" alt="Liste des étudiants" width="600">
+<img src="./assets/images/edit.png" alt="Page d'édition d'un étudiant" width="600">
+<img src="./assets/images/notification.png" alt="Notification d'édition" width="300">
+</div>
+
 # Sujet
 
 Durée : la journée.
@@ -85,12 +94,3 @@ Home [Users]    <-- Implémentez une navigation
 - Elie 13/01/79 [X]
 - Stephane 13/11/72 [X]
 ```
-
-## Aperçus des rendus sur maquette minimaliste
-*CRUD en images :* Page d'accueil (**Création**), liste des étudiants/padawans (**Lecture**), et édition d'un étudiant (**Édition**), **suppression**.
-<center>
-<img src="./assets/images/home.png" alt="Page d'accueil" width="600">
-<img src="./assets/images/students.png" alt="Liste des étudiants" width="600">
-<img src="./assets/images/edit.png" alt="Page d'édition d'un étudiant" width="600">
-<img src="./assets/images/notification.png" alt="Notification d'édition" width="300">
-</center>
