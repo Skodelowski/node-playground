@@ -1,10 +1,13 @@
-# TP NodeJS - Sloan Kodelowski [CC] - CDA16
-Améliorations possibles : 
+# TP NodeJS 
+### CDA 3WA, décembre 2022
+Améliorations possibles hors consigne : 
 - dynamiser les alertes avec un script (pour pouvoir les fermer par exemple)
-- gestion des données avec espaces
+- gestion des données avec espaces et autres propriétés
 - double-validation pour la suppression
 - gérer les doublons (manque un id/clé unique sur le tableau de données)
 - amélioration du js de base / optimisation des process
+- sécurisation des flux et données
+- couche accessibilité
 
 # Sujet
 
@@ -82,3 +85,10 @@ Home [Users]    <-- Implémentez une navigation
 - Elie 13/01/79 [X]
 - Stephane 13/11/72 [X]
 ```
+
+## Aperçus des rendus
+
+![Page d'accueil](./assets/images/home.png)
+![Notification d'édition](./assets/images/notification.png)
+![Liste des étudiants](./assets/images/students.png)
+![Page d'édition d'un étudiant](./assets/images/edit.png)
