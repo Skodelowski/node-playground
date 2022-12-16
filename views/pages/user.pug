@@ -5,7 +5,7 @@ block content
   - const birth = student.birth
   h1.main-title #{name}
   .card-form
-    form(action="/edit/"+name method="POST")
+    form(action="/edit?student="+name method="POST")
       input(type="hidden" name="formerName" value=name)
       if message
         - var messageText = "Informations updated."

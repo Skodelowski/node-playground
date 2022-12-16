@@ -1,7 +1,6 @@
 const removeFromStudents = (array, studentName) => {
-  let formattedName = studentName.replaceAll('%20', ' ')
   for (let student of array) {
-    if (student.name === formattedName) {
+    if (student.name === studentName) {
       array.splice(array.indexOf(student), 1)
     }
   }

@@ -6,6 +6,7 @@ import fs from 'fs'
 import pug from 'pug'
 import dotenv from 'dotenv'
 import dayjs from 'dayjs'
+import studentsTab from './Data/students.js'
 import {
   removeFromStudents,
   addStudent,
@@ -16,28 +17,22 @@ import {
 dotenv.config()
 const { APP_LOCALHOST: hostname, APP_PORT: port } = process.env
 
+// To var
+let students = studentsTab
+
 // Views
 const homepage = './views/pages/home.pug'
 const userspage = './views/pages/users.pug'
 const userpage = './views/pages/user.pug'
 const errorpage = './views/pages/error.pug'
 
-// Datas
-var students = [
-  { name: 'Sonia', birth: '2019-05-14' },
-  { name: 'Antoine', birth: '2000-05-12' },
-  { name: 'Alice', birth: '1990-09-14' },
-  { name: 'Sophie', birth: '2001-02-10' },
-  { name: 'Bernard', birth: '1980-08-21' },
-]
-
 // Server
 const server = http.createServer((req, res) => {
-  const url = req.url.split('?')
-  const argUrl = url[0].split('/')
+  const url = req.url.split('?')[0]
+  let params = new URLSearchParams(req.url.split('?')[1])
 
   // CSS
-  if (argUrl[1] === 'styles') {
+  if (url === '/styles') {
     res.writeHead(200, { 'Content-Type': 'text/css' })
     const css = fs.readFileSync('./assets/css/styles.css')
     res.write(css)
@@ -46,32 +41,28 @@ const server = http.createServer((req, res) => {
   }
 
   // Favicon
-  if (argUrl[1] === 'favicon.ico') {
+  if (url === '/favicon.ico') {
     res.writeHead(200, { 'Content-Type': 'image/x-icon' })
     res.end()
     return
   }
 
   // Homepage
-  if (argUrl[1] === '') {
+  if (url === '/') {
     let message = false
-    if (url[1]) {
+    if (params.get('created')) {
       message = true
     }
-    pug.renderFile(
-      homepage,
-      { pretty: true, students, message },
-      (err, data) => {
-        if (err) throw err
-        res.writeHead(200, { 'Content-Type': 'text/html' })
-        res.end(data)
-      },
-    )
+    pug.renderFile(homepage, { pretty: true, message }, (err, data) => {
+      if (err) throw err
+      res.writeHead(200, { 'Content-Type': 'text/html' })
+      res.end(data)
+    })
     return
   }
 
   // Form
-  if (req.method === 'POST' && argUrl[1] === 'add') {
+  if (url === '/add' && req.method === 'POST') {
     let form = ''
     req.on('data', (data) => {
       form += data
@@ -79,14 +70,14 @@ const server = http.createServer((req, res) => {
     })
 
     req.on('end', () => {
-      res.writeHead(301, { Location: '/?1' })
+      res.writeHead(301, { Location: '/?created=1' })
       res.end()
     })
     return
   }
 
   // Users
-  if (argUrl[1] === 'users') {
+  if (url === '/users') {
     pug.renderFile(
       userspage,
       { pretty: true, students, dayjs },
@@ -100,8 +91,8 @@ const server = http.createServer((req, res) => {
   }
 
   // Delete user
-  if (argUrl[1] === 'del') {
-    let name = url[1].split('=')[1]
+  if (url === '/del') {
+    let name = params.get('student')
     students = removeFromStudents(students, name)
     pug.renderFile(
       userspage,
@@ -116,7 +107,7 @@ const server = http.createServer((req, res) => {
   }
 
   // Edit user form
-  if (argUrl[1] === 'edit' && req.method === 'POST') {
+  if (url === '/edit' && req.method === 'POST') {
     let form = ''
     let updatedName = ''
     req.on('data', (data) => {
@@ -126,19 +117,18 @@ const server = http.createServer((req, res) => {
     })
 
     req.on('end', () => {
-      res.writeHead(301, { Location: `/edit/${updatedName}/?1` })
+      res.writeHead(301, { Location: `/edit?student=${updatedName}&edited=1` })
       res.end()
     })
     return
   }
-
   // Edit user
-  if (argUrl[1] === 'edit') {
+  if (url === '/edit') {
     let message = false
-    if (url[1]) {
+    if (params.get('edited')) {
       message = true
     }
-    let name = argUrl[2].replaceAll('%20', ' ')
+    let name = params.get('student')
     let student = {}
     for (let target of students) {
       if (name === target.name) student = target
