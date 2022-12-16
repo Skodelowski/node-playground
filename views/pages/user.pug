@@ -1,0 +1,21 @@
+extends ../partials/layout.pug
+
+block content
+  - const name = student.name 
+  - const birth = student.birth
+  h1.main-title #{name}
+  .card-form
+    form(action="/edit/"+name method="POST")
+      input(type="hidden" name="formerName" value=name)
+      if message
+        - var messageText = "Informations updated."
+        .notif !{messageText}
+      .input-group
+        label(for="name")= "name"
+        input(type="text" name="name" value=name placeholder="Your name" required)
+      .input-group
+        label(for="birth")= "birthdate"
+        input(type="date" name="birth" value=birth min="1950-01-01" max="2005-01-01" required)
+      .card-button
+        button(type="submit") Update infos
+        a(href="/del?student="+name class="delete-btn") Delete Student

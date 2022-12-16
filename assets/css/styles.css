@@ -1,0 +1,305 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #e6e6e6;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #181818;
+  min-height: 90vh;
+  line-height: 1.5;
+  margin: 0 auto;
+}
+
+/*
+ * HEADER
+ */
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #5592c410;
+}
+
+.logo {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #64d2ee;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  font-size: 18px;
+}
+
+/*
+ * ELEMENTS
+ */
+
+/* --- Links --- */
+a {
+  color: #5592c4;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #64d2ee;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+/* --- Forms --- */
+label {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #42ccc0;
+  letter-spacing: 2px;
+}
+
+input {
+  background-color: #181818;
+  border-style: none;
+  border-bottom: 1px solid #64eea2a8;
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+input:focus {
+  outline: none;
+  border-style: none;
+  border-bottom: 1px solid #5dffa6;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input:invalid + span::after {
+  content: '✖';
+}
+
+input:valid + span::after {
+  content: '✓';
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  width: 15px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 10px;
+}
+
+/*
+ * MAIN
+ */
+
+main {
+  position: relative;
+  padding: 0 60px;
+}
+
+h1.main-title, h1.error-title {
+  display: inline-block;
+  padding: 10px 0;
+  color: #64d2ee;
+  font-size: 48px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 3px;
+  border-bottom: 4px solid #55ddc0;
+}
+
+h1.error-title {
+  color: #eebe64;
+  border-bottom: 4px solid #dd8755;
+}
+
+/* --- Home --- */
+.notif {
+  position: relative;
+  background: #5dffa6;
+  color: #1a1a1a;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+.notif:before {
+  font-weight: bold;
+  margin-right: 10px;
+  content: '✓';
+  color: #2b72ac;
+}
+
+.notif a {
+  color: #2b72ac;
+}
+
+.card-form {
+  display: block;
+  width: 600px;
+  margin: 30px auto;
+  padding: 30px 90px;
+  border-radius: 10px;
+  border: 1px solid #64d2ee20;
+  box-shadow: 0 0 15px #2f5b6620;
+}
+
+.card-title {
+  position: relative;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.card-title h2 {
+  display: inline-block;
+  margin: auto;
+  padding: 7px 0;
+  color: #64d2ee;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.card-button {
+  position: relative;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.card-form button,
+.card-form .delete-btn {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+  text-transform: uppercase;
+  background: #3fb99407;
+  color: #64d2ee;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  line-height: 1.5;
+  border-style: none;
+  border: 0;
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: 1px solid #5592c48e;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-form button:hover {
+  background: #308f8a1a;
+  color: #a3edff;
+}
+
+.card-form .delete-btn {
+  background: #b95b3f07;
+  color: #ee8464;
+  border: 1px solid #c462558e;
+  margin-left: 15px;
+}
+
+.card-form .delete-btn:hover {
+  background: #8f43301a;
+  color: #ffb8a3;
+}
+
+/* --- Students --- */
+.cards-students {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 15px;
+  margin: 30px auto;
+}
+
+.card-student {
+  position: relative;
+  min-width: 200px;
+  margin-bottom: 10px;
+  padding: 60px;
+  border: 1px solid #64d2ee20;
+  box-shadow: 0 0 10px #2f5b6615;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-student:hover {
+  border: 1px solid #64d2ee41;
+  box-shadow: 0 0 10px #3d717e15;
+}
+
+.card-overlink {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.student-name {
+  color: #42ccc0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.student-birthdate {
+  color: #5592c4;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.student-actions {
+  position: absolute;
+  float: right;
+  top: 10px;
+  right: 15px;
+}
+
+.student-actions a {
+  color: #3b5972c4;
+}
+
+.student-actions a:hover {
+  color: #723b55c4;
+}
+
+/*
+ * FOOTER
+ */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  background: #1a1a1a;
+  border-top: 1px solid #5592c410;
+}
+
+footer p {
+  color: #5592c460;
+}

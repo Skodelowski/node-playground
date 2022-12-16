@@ -1,0 +1,18 @@
+extends ../partials/layout.pug
+
+block content
+  h1.main-title Let's join us !
+  .card-form
+    form(action="/add" method="POST")
+      .card-title: h2 Who are you ?
+      if message
+        - var messageText = "Padawan added to <a href=\"/users\">the list</a>."
+        .notif !{messageText}
+      .input-group
+        label(for="name")= "name"
+        input(type="text" name="name" required placeholder="Your name")
+      .input-group
+        label(for="birth")= "birthdate"
+        input(type="date" name="birth" value="1990-12-16" min="1950-01-01" max="2005-01-01" required)
+      .card-button
+        button(type="submit") Add a Padawan

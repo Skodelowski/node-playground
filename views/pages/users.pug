@@ -1,0 +1,16 @@
+extends ../partials/layout.pug
+
+mixin userLine(name, birth)
+  - var suppr = `<a href="/del?student=${name}">✖</a>`;
+  - var edit = `<a href="/edit?student=${name}">[ edit ]</a>`;
+  .card-student 
+    a(href="/edit/"+name).card-overlink
+    .student-name #{name}
+    .student-birthdate (#{dayjs(birth).format('DD/MM/YY')})
+    .student-actions !{suppr}
+
+block content
+  h1.main-title Padawans
+  .cards-students
+    each student in students
+      +userLine(student.name, student.birth)
